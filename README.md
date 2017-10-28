@@ -9,8 +9,9 @@ Write modular queries in Clojure, then transpile them to monolithic SQL.
   (let [sql (query->
               (from :users
                 (select :name)))
-        expected "SELECT name\nFROM users"]
-    (println "print:\n" sql)
+        expected
+"SELECT name
+FROM users"]
     (is (= sql expected))))
 
 (deftest where-test
@@ -18,8 +19,10 @@ Write modular queries in Clojure, then transpile them to monolithic SQL.
                 (from :users
                     (select :name)
                     (where (= :name "Smith"))))
-        expected "SELECT name\nFROM users\nWHERE name = 'Smith'"]
-    (println "print:\n" sql)
+        expected
+"SELECT name
+FROM users
+WHERE name = 'Smith'"]
     (is (= sql expected))))
 
 
@@ -28,16 +31,19 @@ Write modular queries in Clojure, then transpile them to monolithic SQL.
               (update :users
                 (set (= :firstname "John") (= :surname "Smith"))
                 (where (= :id 5))))
-        expected "UPDATE users\nSET firstname = 'John', surname = 'Smith'\nWHERE id = 5"]
-    (println "print:\n" sql)
+        expected
+"UPDATE users
+SET firstname = 'John', surname = 'Smith'
+WHERE id = 5"]
     (is (= sql expected))))
 
 (deftest delete-test
     (let [sql (query->
                 (delete-from :users)
                 (where (= :id 5)))
-        expected "DELETE FROM users\nWHERE id = 5"]
-    (println "print:\n" sql)
+        expected
+"DELETE FROM users
+WHERE id = 5"]
     (is (= sql expected))))
 
 
@@ -48,14 +54,17 @@ Write modular queries in Clojure, then transpile them to monolithic SQL.
                  (where (= :name "Smith"))
                  (middle-join :roles (on= :userId :userId)
                   (select :role))))
-            expected "DELETE FROM users\nWHERE id = 5"]
-        (println "print:\n" sql)
+            expected
+"SELECT name, role
+FROM users
+INNER JOIN roles on users.userId = roles.userId
+WHERE name = 'Smith'"]
         (is (= sql expected))))
 ```
 
 ## License
 
-Copyright © 2017 FIXME
+Copyright © 2017 Alex Lynch
 
 Distributed under the Eclipse Public License either version 1.0 or (at
 your option) any later version.

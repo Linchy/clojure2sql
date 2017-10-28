@@ -6,7 +6,9 @@
   (let [sql (query->
               (from :users
                 (select :name)))
-        expected "SELECT name\nFROM users"]
+        expected
+"SELECT name
+FROM users"]
     (println "print:\n" sql)
     (is (= sql expected))))
 
@@ -15,7 +17,10 @@
                 (from :users
                     (select :name)
                     (where (= :name "Smith"))))
-        expected "SELECT name\nFROM users\nWHERE name = 'Smith'"]
+        expected
+"SELECT name
+FROM users
+WHERE name = 'Smith'"]
     (println "print:\n" sql)
     (is (= sql expected))))
 
@@ -25,7 +30,10 @@
               (update :users
                 (set (= :firstname "John") (= :surname "Smith"))
                 (where (= :id 5))))
-        expected "UPDATE users\nSET firstname = 'John', surname = 'Smith'\nWHERE id = 5"]
+        expected
+"UPDATE users
+SET firstname = 'John', surname = 'Smith'
+WHERE id = 5"]
     (println "print:\n" sql)
     (is (= sql expected))))
 
@@ -33,7 +41,9 @@
     (let [sql (query->
                 (delete-from :users)
                 (where (= :id 5)))
-        expected "DELETE FROM users\nWHERE id = 5"]
+        expected
+"DELETE FROM users
+WHERE id = 5"]
     (println "print:\n" sql)
     (is (= sql expected))))
 
@@ -45,6 +55,10 @@
                  (where (= :name "Smith"))
                  (middle-join :roles (on= :userId :userId)
                   (select :role))))
-            expected "DELETE FROM users\nWHERE id = 5"]
+            expected
+"SELECT name, role
+FROM users
+INNER JOIN roles on users.userId = roles.userId
+WHERE name = 'Smith'"]
         (println "print:\n" sql)
         (is (= sql expected))))
