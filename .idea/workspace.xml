@@ -35,11 +35,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="core_test.clj" pinned="false" current-in-tab="true">
+      <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="603">
+              <caret line="132" column="34" lean-forward="false" selection-start-line="132" selection-start-column="34" selection-end-line="132" selection-end-column="34" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="core_test.clj" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/test/clojure2sql/core_test.clj">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="47">
-              <caret line="99" column="9" lean-forward="true" selection-start-line="99" selection-start-column="9" selection-end-line="99" selection-end-column="29" />
+            <state relative-caret-position="685">
+              <caret line="128" column="34" lean-forward="true" selection-start-line="3" selection-start-column="0" selection-end-line="128" selection-end-column="34" />
               <folding />
             </state>
           </provider>
@@ -56,9 +66,9 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/project.clj" />
-        <option value="$PROJECT_DIR$/README.md" />
-        <option value="$PROJECT_DIR$/test/clojure2sql/core_test.clj" />
         <option value="$PROJECT_DIR$/src/clojure2sql/core.clj" />
+        <option value="$PROJECT_DIR$/test/clojure2sql/core_test.clj" />
+        <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
   </component>
@@ -172,7 +182,7 @@
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
   </component>
-  <component name="ReplState" timestamp="1509205699038">{:repl-history {:ide [], :local [{:command &quot;(-main)&quot;, :offset 7, :ns &quot;clojure2sql.core&quot;} {:command &quot;(select-test)&quot;, :offset 13, :ns &quot;clojure2sql.core&quot;} {:command &quot;(clojure2sql.core-test/select-test)&quot;, :offset 35, :ns &quot;clojure2sql.core&quot;} {:command &quot;(clojure2sql.core-test/where-test)&quot;, :offset 34, :ns &quot;clojure2sql.core&quot;}], :remote []}}</component>
+  <component name="ReplState" timestamp="1509205783017">{:repl-history {:ide [], :local [{:command &quot;(-main)&quot;, :offset 7, :ns &quot;clojure2sql.core&quot;} {:command &quot;(select-test)&quot;, :offset 13, :ns &quot;clojure2sql.core&quot;} {:command &quot;(clojure2sql.core-test/select-test)&quot;, :offset 35, :ns &quot;clojure2sql.core&quot;} {:command &quot;(clojure2sql.core-test/where-test)&quot;, :offset 34, :ns &quot;clojure2sql.core&quot;}], :remote []}}</component>
   <component name="RunManager" selected="Clojure REPL.REPL for clojure2sql">
     <configuration default="false" name="REPL for clojure2sql" type="ClojureREPL" factoryName="Local" temporary="true">
       <setting name="replType" value="1" />
@@ -440,7 +450,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
@@ -451,7 +461,7 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="REPL" active="true" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.38229167" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
+      <window_info id="REPL" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.38229167" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32980973" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Leiningen" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -496,18 +506,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="16" lean-forward="true" selection-start-line="11" selection-start-column="16" selection-end-line="11" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/project.clj">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
           <caret line="7" column="0" lean-forward="true" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/clojure2sql/core_test.clj">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="685">
+          <caret line="128" column="34" lean-forward="true" selection-start-line="3" selection-start-column="0" selection-end-line="128" selection-end-column="34" />
           <folding />
         </state>
       </provider>
@@ -520,10 +530,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test/clojure2sql/core_test.clj">
+    <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="47">
-          <caret line="99" column="9" lean-forward="true" selection-start-line="99" selection-start-column="9" selection-end-line="99" selection-end-column="29" />
+        <state relative-caret-position="603">
+          <caret line="132" column="34" lean-forward="false" selection-start-line="132" selection-start-column="34" selection-end-line="132" selection-end-column="34" />
           <folding />
         </state>
       </provider>

@@ -66,10 +66,10 @@ WHERE name = 'Smith'"]
                            (left-join :roles (on= :userId :userId)
                                        (select :role))))
                expected
-               "SELECT name, role
-               FROM users
-               LEFT OUTER JOIN roles on users.userId = roles.userId
-               WHERE name = 'Smith'"]
+"SELECT name, role
+FROM users
+LEFT OUTER JOIN roles on users.userId = roles.userId
+WHERE name = 'Smith'"]
            (is (= sql expected))))
 
 (deftest right-outer-join-test
@@ -80,10 +80,10 @@ WHERE name = 'Smith'"]
                            (right-join :roles (on= :userId :userId)
                                        (select :role))))
                expected
-               "SELECT name, role
-               FROM users
-               RIGHT OUTER JOIN roles on users.userId = roles.userId
-               WHERE name = 'Smith'"]
+"SELECT name, role
+FROM users
+RIGHT OUTER JOIN roles on users.userId = roles.userId
+WHERE name = 'Smith'"]
            (is (= sql expected))))
 
 (deftest group-by-test
@@ -92,9 +92,9 @@ WHERE name = 'Smith'"]
                        (group-by :country)
                        (select (count :name) :country)))
                expected
-               "SELECT COUNT(name), country
-               FROM users
-               GROUP BY country"]
+"SELECT COUNT(name), country
+FROM users
+GROUP BY country"]
            (is (= sql expected))))
 
 (deftest group-by-having-test
@@ -104,10 +104,10 @@ WHERE name = 'Smith'"]
                              (where (> (count :name) 5)))
                            (select (count :name) :country)))
                expected
-               "SELECT COUNT(name), country
-               FROM users
-               GROUP BY country
-               HAVING surname = 'Smith'"]
+"SELECT COUNT(name), country
+FROM users
+GROUP BY country
+HAVING surname = 'Smith'"]
            (is (= sql expected))))
 
 (deftest nested-query-test
