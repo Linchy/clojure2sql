@@ -1,4 +1,4 @@
-(ns clojure2sql.core-test
+(ns clojure2sql.core-spec-e2e
   (:require [clojure.test :refer [deftest is]]
             [clojure2sql.core :refer :all]
             [clojure.core :as core]))
@@ -8,7 +8,7 @@
               (from :users
                 (select :firstname :surname)))
         expected
-"SELECT name
+"SELECT firstname, surname
 FROM users"]
     (is (core/= sql expected))))
 
