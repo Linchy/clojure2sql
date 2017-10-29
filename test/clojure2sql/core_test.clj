@@ -1,6 +1,7 @@
 (ns clojure2sql.core-test
-  (:require [clojure.test :refer [is]]
-            [clojure2sql.core :refer :all]))
+  (:require [clojure.test :refer [deftest is]]
+            [clojure2sql.core :refer :all]
+            [clojure.core :as core]))
 
 (deftest select-test
   (let [sql (query->
@@ -9,7 +10,7 @@
         expected
 "SELECT name
 FROM users"]
-    (is (= sql expected))))
+    (is (core/= sql expected))))
 
 (deftest where-test
   (let [sql (query->
@@ -20,7 +21,7 @@ FROM users"]
 "SELECT name
 FROM users
 WHERE name = 'Smith'"]
-    (is (= sql expected))))
+    (is (core/= sql expected))))
 
 
 (deftest update-test
@@ -32,7 +33,7 @@ WHERE name = 'Smith'"]
 "UPDATE users
 SET firstname = 'John', surname = 'Smith'
 WHERE id = 5"]
-    (is (= sql expected))))
+    (is (core/= sql expected))))
 
 (deftest delete-test
     (let [sql (query->
@@ -41,7 +42,7 @@ WHERE id = 5"]
         expected
 "DELETE FROM users
 WHERE id = 5"]
-    (is (= sql expected))))
+    (is (core/= sql expected))))
 
 
 (deftest inner-join-test
@@ -56,7 +57,7 @@ WHERE id = 5"]
 FROM users
 INNER JOIN roles on users.userId = roles.userId
 WHERE name = 'Smith'"]
-        (is (= sql expected))))
+        (is (core/= sql expected))))
 
 (deftest left-outer-join-test
          (let [sql (query->
@@ -70,7 +71,7 @@ WHERE name = 'Smith'"]
 FROM users
 LEFT OUTER JOIN roles on users.userId = roles.userId
 WHERE name = 'Smith'"]
-           (is (= sql expected))))
+           (is (core/= sql expected))))
 
 (deftest right-outer-join-test
          (let [sql (query->
@@ -84,7 +85,7 @@ WHERE name = 'Smith'"]
 FROM users
 RIGHT OUTER JOIN roles on users.userId = roles.userId
 WHERE name = 'Smith'"]
-           (is (= sql expected))))
+           (is (core/= sql expected))))
 
 (deftest group-by-test
          (let [sql (query->
@@ -95,7 +96,7 @@ WHERE name = 'Smith'"]
 "SELECT COUNT(name), country
 FROM users
 GROUP BY country"]
-           (is (= sql expected))))
+           (is (core/= sql expected))))
 
 (deftest group-by-having-test
          (let [sql (query->
@@ -108,7 +109,7 @@ GROUP BY country"]
 FROM users
 GROUP BY country
 HAVING surname = 'Smith'"]
-           (is (= sql expected))))
+           (is (core/= sql expected))))
 
 (deftest nested-query-test
          (let [get-russia-population (query->
@@ -126,4 +127,15 @@ WHERE population > (
   SELECT population
   FROM countries
   WHERE name = 'Russia')"]
-           (is (= sql expected))))
+           (is (core/= sql expected))))
+
+(deftest parameterised-query-test
+         (let [sql (query->
+                     (from :countries
+                           (select :name)
+                           (where (> :population (param :minPopulation)))))
+               expected
+ "SELECT name
+ FROM countries
+ WHERE population > @0"]
+           (is (core/= sql expected))))
